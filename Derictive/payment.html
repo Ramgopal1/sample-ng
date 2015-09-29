@@ -1,0 +1,275 @@
+<div class="mvm-container payment-alert before-spacer">
+	<div class="arrow-icon">	
+		<div class="icon icon-dollar"></div>
+	</div>
+	<div class="text"><span class="text-light">Last payment made</span> <strong class="medium">03/17/2015</strong> <span class="text-light">in the amount of </span><span class="bold">$600.29</span></div>
+</div>
+<div class="mvm-container">
+	<div class="mvm-box">
+		<div class="mvm-container breadcrumb flat">
+			<div class="cell breadcrumb-item breadcrumb-first breadcrumb-active"><div class="breadcrumb-inner">Choose Your Payment Method</div></div>
+			<div class="cell breadcrumb-item"><div class="breadcrumb-inner">2</div>	</div>
+			<div class="cell breadcrumb-item"><div class="breadcrumb-inner">3</div></div>
+		</div>
+	</div>
+</div>
+<div class="mvm-container hero">
+	<div class="mvm-box">	
+		<div class="cell align-left">
+			<div><span class="mvm-font-small">{{payment.paymentMap.currentBalHdg}}</span></div>
+			<div><span class="mvm-font-large bold">{{payment.paymentMap.currentBalAmt}}</span></div>
+			<div><span class="mvm-font-medium">Autopay on <span class="bold">{{payment.paymentMap.balDueDate}}</span></span></div>
+		</div>
+		<div class="cell align-right align-bottom mvm-width-40">
+			<div>
+				<img class="" src="./resources/images/norton.png" style=""/>
+			</div>			
+		</div>
+	</div>
+</div>
+<!-- SHARED ACCOUNT BALANCE SUMMARY -->
+<div class="mvm-container hero hero-dark">		
+	<div class="mvm-box" ng-hide="hideGiftCard">
+		<div class="cell align-left">
+			<div class="">
+				<span class="mvm-font-large bold">{{payment.pmtInfo.savedPmtAcctHdg}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box" ng-hide="hideGiftCard">
+		<div class="cell align-left">
+			<div class="mvm-form-fields">
+				<select class="mvm-width-100" ng-model="selectAccount" ng-change="selectSavedAcct()" style="background:white;">
+					<option>Select Saved Payment Source</option>
+					<option ng-repeat="method in payMethods">
+					 {{method}}  
+				    </option>										
+				</select>		
+			</div>
+		</div>
+	</div>
+	<div ng-hide="hideAcctType">
+	<div class="mvm-box" ng-hide="hideGiftCard">	
+		<div class="mvm-container">
+			<div class="cell align-left">
+				<div class="before-spacer">
+					<a class="mvm-link"  ng-click="application.model.toggle(application.model.futureMsg)">ADD PAYMENT ACCOUNTS ></a>
+				</div>
+			</div>
+			<div class="cell align-right">
+				<div class="before-spacer">
+					<a class="mvm-link"  ng-click="application.model.toggle(application.model.futureMsg)">{{payment.pmtInfo.paymentMap.rightLink.title}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box" ng-hide="hideGiftCard">
+		<div class="mvm-container">
+			<div class="cell align-left mvm-width-50">
+				<div  class="pos_relative">
+					<span class="_line"></span>
+				</div>
+			</div>
+			<div class="cell align-center align-middle">
+				<div>
+					OR
+				</div>
+			</div>
+			<div class="cell align-right mvm-width-50">
+				<div  class="pos_relative">
+					<span class="_line"></span>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div class="">
+				<span class="mvm-font-large bold">{{payment.pmtInfo.newPmtAcctHdg}}</span>
+			</div>
+		</div>
+	</div>
+	<div id="srcPayment" ng-hide="hideGiftCard">
+		<div class="mvm-box">
+			<div class="cell align-left align-middle">
+				<div class="before-spacer">
+					<input type="radio" id="payment_2" class="inline_block checkbox" ng-model="achPayment" value="{{payment.pmtInfo.newPmtActLst[0].accountName}}" name="payment" ng-change='payWithACH()'>
+					<label for="payment_2" class="mvm-font-large">{{payment.pmtInfo.newPmtActLst[0].accountName}}</label>
+					</input>
+				</div>
+			</div>
+		</div>
+		<div class="mvm-box">
+			<div class="cell align-left">
+				<div class="before-spacer after-spacer">
+					<input type="radio" id="payment_1" class="checkbox" name="payment" ng-model="payWithAnother" value="{{payment.pmtInfo.newPmtActLst[1].accountName}}" ng-change='displayGiftCard()'/>
+					<label for="payment_1" class="mvm-font-large">{{payment.pmtInfo.newPmtActLst[1].accountName}}</label>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div id="srcPaymentType" ng-show="hideGiftCard">
+		<div class="mvm-box">
+			<div class="cell align-left align-middle">
+				<div class="before-spacer">
+					<input type="radio" id="pmttype_2"  ng-model="radPayment" value="{{payment.pmtInfo.newPmtActLst[1].children[0].accountName}}" class="inline_block checkbox" name="pmttype">
+					<label for="pmttype_2" class="mvm-font-large">{{payment.pmtInfo.newPmtActLst[1].children[0].accountName}}</label>
+					</input>
+				</div>
+			</div>
+		</div>
+		<div class="mvm-box">
+			<div class="cell align-left">
+				<div class="before-spacer after-spacer">
+					<input type="radio" id="pmttype_1" ng-model="radPayment" value="{{payment.pmtInfo.newPmtActLst[1].children[1].accountName}}" class="inline_block checkbox" name="pmttype"/>
+					<label for="pmttype_1" class="mvm-font-large">{{payment.pmtInfo.newPmtActLst[1].children[1].accountName}}</label>
+				</div>
+			</div>
+		</div>
+    </div>    
+</div>
+</div>
+<div ng-show="showPaymentError">
+	<div class="cell align-left">
+		<div class="red mvm-font-medium">
+			<span class="mvm-font-medium bold">Please select a payment source.</span>
+		</div>
+	</div>
+</div>
+<div class="mvm-container">
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div class="before-spacer">
+				<span class="mvm-font-large bold">{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.enterPaymentMsg}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="mvm-container ">
+			<div class="cell align-left" ng-hide="hideDateDropdown">
+				<div class="before-spacer">
+					<label class="mvm-font-large bold">{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.paymentAmtPay}}</a>
+				</div>
+			</div>
+			<div class="cell align-left" ng-hide="hideGiftCard">
+				<div class="" ng-hide="hideDateDropdown">
+					<label class="mvm-font-large bold">{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.paymentDateMsg}}</a>					
+				</div>
+			</div>
+			<div class="mvm-form-fields before-spacer" ng-show="hideGiftCard">
+				<div class="input-group">
+			          <div class="input-group-addon">$</div>
+			          <input type="text" id="txtAmount" ng-model="amtToPay"  class="form-control icon-dollar" ng-style="{'width':Width}"/>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box" ng-show="hideAmtToPay">
+		<div class="mvm-container ">
+			<div class="cell align-left">
+				<div class="before-spacer">
+					<label class="mvm-font-large bold">{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.paymentAmtPay}}</a>
+				</div>
+			</div>			
+			<div class="mvm-form-fields before-spacer">
+				<div class="input-group">
+			          <div class="input-group-addon">$</div>
+			          <input type="text" id="txtAmount" ng-model="amtToPay"  class="form-control icon-dollar" ng-style="{'width':Width}"/>
+			    </div>
+			</div>
+		</div>
+	</div>	
+	<div class="mvm-box">
+		<div class="mvm-container">
+			<div class="cell align-left mvm-width-40" ng-hide="hideGiftCard">
+				<div class="mvm-form-fields">				
+					<div class="input-group" ng-hide="hideDateDropdown">
+				          <div class="input-group-addon">$</div>
+				          <input type="text" id="txtAmount" ng-model="amtToPay"  class="form-control icon-dollar" ng-style="{'width':Width}"/>
+				    </div>			
+				</div>
+			</div>
+			<div class="cell align-left mvm-width-40" ng-hide="hideGiftCard">
+				<div class="mvm-form-fields" ng-hide="hideDateDropdown">		
+					<select class="mvm-width-100" ng-model="paymentDate" ng-change="selectPaymentDate()" style="background:white;">
+					  <option>Select</option>
+					  <option ng-repeat="datePay in paymentDates">
+						{{datePay}}  
+					  </option>
+					</select>	
+				</div>
+			</div>
+		</div>
+	   <div ng-show="showPayDateError">
+		<div class="cell align-left">
+			<div class="red">
+				<span class="mvm-font-medium bold">Please select payment date</span>
+			</div>
+		</div>
+	   </div>	
+	   <div ng-show="showAmtError">
+		<div class="cell align-left">
+			<div class="red">
+				<span class="mvm-font-medium bold">Please enter the amount to pay.</span>
+			</div>
+		</div>
+	   </div>		
+	</div>
+	<div class="mvm-box" ng-hide="hideGiftCard">
+		<div class="mvm-container">
+			<div class="cell align-left">
+				<div class="before-spacer ">
+				  <input style="display:inline-block;" class="checkbox" type="checkbox" ng-model="chkTnC" ng-change="checkTnC()" id="chkTC"/>
+				  <label for="chkTC">	{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.paymentTCTxt1}}</label> <a class="mvm-link" href="" ng-click="application.model.toggle(application.model.futureMsg)">{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.paymentTCTxt2}}</a>
+				</div>
+			</div>		  
+		</div>
+		<div ng-show="showTnCError">
+			<div class="cell align-left">
+				<div class="red mvm-font-medium">
+					<span class="mvm-font-medium bold" ng-click="application.model.toggle(application.model.futureMsg)">Please accept Terms & Conditions.</span>
+				</div>
+			</div>
+		</div>			
+	</div>
+	<div class="mvm-box" ng-hide="hideGiftCard">
+		<div class="cell align-center">
+			<div>
+				<button class="btn btn-danger mvm-width-100"
+					ng-click="goToGateWay()">
+					{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.cntNextBtnTxt}}
+				</button>
+			</div>			
+		</div>
+	</div>
+	
+
+	<div class="mvm-box" ng-show="hideGiftCard">
+		<div class="mvm-container before-spacer split-container">
+		<div class="inner-container">
+			<div class="cell">
+				<button class="btn btn-danger btn-fullwidth" ng-click="goToPaymentGateWay()" type="submit">{{payment.pmtInfo.scrnTxtMap.payWithNewCardScrnMap.continueBtnTxt}}</button>
+			</div>
+			<div class="cell ">
+				<button class="btn btn-gray btn-fullwidth" ng-click="goToPayment()">{{payment.pmtInfo.scrnTxtMap.payWithNewCardScrnMap.cancelBtnTxt}}</button>
+			</div>
+		</div>
+		</div>	
+	</div> 
+</div>
+<div class="mvm-container hero">		
+	<div class="cell icon icon-mobilet font-gray"></div>
+	<div class="cell hero-text align-left">{{payment.PageInfo.scrnMsgInfo.scrnMsgMap.payScrnMsg}}</div>
+</div>
+<!-- LIST -->
+<div class="mvm-container mvm-list" >
+	<div class="mvm-box" ng-repeat="item in payment.LinksInfo" ng-click="application.model.toggle(application.model.futureMsg)">
+		<div class="cell icon icon-marker align-center"></div>
+		<div class="cell align-left align-middle">{{item.title}}</div>
+		<div class="cell align-middle align-left icon icon-right-angle"></div>
+	</div>	
+</div>
+<!-- SLIDER -->
+<div class="mvm-container" ng-click="clickFunction">
+	<div class="before-spacer"></div>
+</div>
