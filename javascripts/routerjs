@@ -1,0 +1,39 @@
+angular.module('MVM.router', ['ngRoute'])
+	.config(["$routeProvider", "$locationProvider", routerFn]);
+
+function routerFn($routeProvider, $locationProvider) {
+		$routeProvider
+			.when('/Home', {templateUrl: 'app/view/Home.html', controller: 'HomeController'})
+			.when('/Login', {templateUrl: 'app/view/Login.html', controller: 'LoginController'})
+			.when('/Login/:subpage', {templateUrl: 'app/view/Login.html', controller: 'LoginController'})
+			.when('/Register', {templateUrl: 'app/view/Register.html', controller: 'RegisterController'})
+			.when('/Register/accountLevel', {templateUrl: 'app/view/register/accountLevel.html', controller: 'RegisterController'})
+			.when('/Register/profileSetUp', {templateUrl: 'app/view/register/profileSetUp.html', controller: 'RegisterController'})
+			.when('/Register/tempPassword', {templateUrl: 'app/view/register/tempPassword.html', controller: 'RegisterController'})
+			.when('/Payment', {templateUrl: 'app/view/Payment.html', controller: 'PaymentController'})
+			.when('/Confirmation', {templateUrl: 'app/view/Confirmation.html', controller: 'PaymentController'})
+			.when('/Payment/gateway', {templateUrl: 'app/view/payment/gateway.html', controller: 'PaymentController'})
+			.when('/Payment/paywithgiftcard', {templateUrl: 'app/view/payment/paywithgiftcard.html', controller: 'PaymentController'})
+			.when('/Payment/newACHPayment', {templateUrl: 'app/view/payment/newACHPayment.html', controller: 'PaymentController'})
+			.when('/Payment/review', {templateUrl: 'app/view/payment/review.html', controller: 'PaymentController'})
+			.when('/Device', {templateUrl: 'app/view/Device.html', controller: 'DeviceController'})
+			.when('/Device/list', {templateUrl: 'app/view/device/list.html', controller: 'DeviceController'})
+			.when('/Notifications', {templateUrl: 'app/view/Notifications.html', controller: 'NotificationsController'})
+			.when('/MyProfile', {templateUrl: 'app/view/MyProfile.html', controller: 'MyProfileController'})
+			.when('/Support', {templateUrl: 'app/view/Support.html', controller: 'SupportController'})
+			.when('/Shop', {templateUrl: 'app/view/Shop.html', controller: 'ShopController'})
+			.otherwise({
+				redirectTo:'/Login'
+			});
+		// configure html5 to get links working on jsfiddle
+		$locationProvider.hashPrefix('!').html5Mode(false);
+	}
+
+	/*resolve: {
+					// I will cause a 1 second delay
+					delay: function($q, $timeout) {
+						var delay = $q.defer();
+						$timeout(delay.resolve, 1000);
+						return delay.promise;
+					}
+				}*/
