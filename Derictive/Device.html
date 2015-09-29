@@ -1,0 +1,166 @@
+		
+<div class="mvm-container texticon bold align-center">
+	<div class="cell">
+		<div class="bold align-center"
+			ng-click="application.navigation.goTo('Device/list')" >
+			<span style="padding: 0.6em 0;">SELECT ANOTHER DEVICE</span>
+			<span style="font-size: 1.1em;" class= " icon texticon icon-down"></span>
+		</div>
+	</div>	
+</div>
+<div class= "mvm-container hero-dark line" >
+	<div class="mvm-box" style="">
+		<div class="cell ">
+			<div class="mvm-container">
+				<div class="cell icon icon-mobileg"></div>
+				<div class="cell align-middle after-spacer">
+					<div>
+						{{deviceDetailLst[application.currentDeviceIndex].nickName}}
+					</div>
+						<div class="bold">
+							{{deviceDetailLst[application.currentDeviceIndex].mdn | formatmdn}}
+						</div>
+					<div>
+						{{deviceDetailLst[application.currentDeviceIndex].productName}}
+					</div> 
+				</div>	
+			</div>
+		</div>		
+	</div>
+	<div class="mvm-box" style="">
+		<div class="mvm-box" style="">
+			<div class="cell align-middle">
+				<div class="smallfont">
+					{{deviceDetailLst[application.currentDeviceIndex].eligibleUpgradeDate}}
+				</div>
+				<div class="smallfont after-spacer">
+					{{deviceDetailLst[application.currentDeviceIndex].mtnContractExpDate}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="cell align-middle">
+			<div class="after-spacer">
+				<button class="btn btn-danger align-center mvm-width-100" 
+					ng-click="application.model.toggle(application.model.futureMsg)">
+					{{device[0].upgradeBtnMap.upgradeBtnMap.title}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class= "mvm-container hero-dark">		
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div class="">
+				<span class="bold">{{device[0].PageInfo.scrnMsgInfo.scrnMsgLinkMap.advanDeviceDetailTxt}}</span>
+			</div>
+		</div>
+		<div class="cell align-right" ng-click ="devicedetails.visible = !devicedetails.visible">
+			<div class="">
+				<span class="icon"					
+					ng-class="{'icon-up-angle': devicedetails.visible, 'icon-down-angle': !!!devicedetails.visible}" style="color:black"></span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class= "mvm-container hero-dark" ng-show="devicedetails.visible">	
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div>
+				{{device[0].PageInfo.scrnMsgInfo.scrnMsgLinkMap.simNo}}:{{deviceDetailLst[application.currentDeviceIndex].mtnSimNo}}
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div>
+				{{device[0].PageInfo.scrnMsgInfo.scrnMsgLinkMap.imeiNo}}:{{deviceDetailLst[application.currentDeviceIndex].mntImeiNo}}
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div class="after-spacer">
+				{{device[0].PageInfo.scrnMsgInfo.scrnMsgLinkMap.esnNo}}:{{deviceDetailLst[application.currentDeviceIndex].mtnEsnNo}}
+			</div>
+		</div>
+	</div>			
+</div>
+    
+
+<!-- Advanced Device Details -->
+
+<div class="mvm-container hero advancedClass">		
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div class="">
+				<span class="bold">{{deviceDetailLst[application.currentDeviceIndex].usageOverview.pageInfoVO.scrnMsgInfo.scrnMsgObjMap.lineLevalPageUsgHdg}}</span>
+			</div>
+
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="mvm-container">
+			<div class="cell icon icon-calender"></div>
+			<div class="cell hero-text align-left">
+				<span class="bold">{{deviceDetailLst[application.currentDeviceIndex].usageOverview.pageInfoVO.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgReminingDays}}</span> <span>{{device[0].deviceDetailLst[0].usageOverview.pageInfoVO.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgDayLftMsg}}</span> <span>{{device[0].deviceDetailLst[0].usageOverview.pageInfoVO.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgDayEndsOnMsg}}</span><span class="bold">{{device[0].deviceDetailLst[0].usageOverview.pageInfoVO.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgBillCycleEndDate}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="mvm-container" ng-repeat="subitems in deviceDetailLst[application.currentDeviceIndex].usageOverview.usageInfoVo.usgOverview.usgDtlLst" ng-class="{'mvm-hide': !subitems.progressColor}"> 
+			<div class="cell after-spacer mvm-width-90">
+				<div class="mvm-container">
+					<div class="cell align-left">
+						{{subitems.text}}
+					</div>
+					<div class="cell align-right mvm-font-medium">
+						{{subitems.totalUsage}}
+					</div>
+				</div>
+				<div class="mvm-container">
+					<progressbar 						
+						progressColor="{{subitems.progressColor}}" 						
+						max="100" 
+						value="(subitems.max =='UNLMTD')?100:subitems.percentage"  
+						animate="true" type="subitems.progressColor">
+					</progressbar>
+ 				</div> 
+ 				<div class="mvm-container mvm-font-small font-gray" style="padding: 0.5em 0.7em">{{subitems.estMsg}}{{subitems.estDt}}</div>
+			</div>
+			<div class="cell align-middle align-right icon icon-right-angle"></div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="cell align-right">
+			<div class="">
+				<a class="mvm-link" ng-click="application.navigation.goTo('Device/list')">SEE INDIVIDUAL DEVICE USAGE ></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- LIST -->
+<div class="mvm-container mvm-list" ng-click="application.model.toggle(application.model.futureMsg)">
+	<div class="mvm-box">
+		<div class="cell icon icon-marker align-center"></div>
+			<div class="cell align-left align-middle">Store Locator</div>
+		<div class="cell align-middle align-left icon icon-right-angle"></div>
+	</div>
+	<div class="mvm-box">
+		<div class="cell icon icon-shield align-center"></div>
+			<div class="cell align-left align-middle">Privacy Settings</div>
+		<div class="cell align-middle align-left icon icon-right-angle"></div>
+	</div>
+	<div class="mvm-box">
+		<div class="cell icon icon-users align-center"></div>
+			<div class="cell align-left align-middle">Family Safegaurds</div>
+		<div class="cell align-middle align-left icon icon-right-angle"></div>
+	</div>
+</div>
+<!-- SLIDER -->
+<div class="mvm-container" ng-click="clickFunction">
+	<div class="before-spacer"></div>
+</div>
