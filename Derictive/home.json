@@ -1,0 +1,263 @@
+{
+    "PageInfo": {
+        "pageType": "launchRCApp",
+        "scrnHdg": "My Verizon",
+        "hideFooter": "N"
+    },
+    "JsonArray": [
+        {
+            "UsgInfo": {
+                "UsgDtl": [
+                    {
+                        "pic_nm": "Data",
+                        "optionType": "Data",
+                        "text": "DATA",
+                        "percentage": "95",
+                        "progressColor": "PrimaryRed",
+                        "Dtl": [],
+                        "totalUsage": "7.5 GB of 8 GB",
+                        "index": 0,
+                        "prorated": "false"
+                    },
+                    {
+                        "pic_nm": "Minutes",
+                        "optionType": "Minutes",
+                        "text": "MINUTES",
+                        "percentage": "50",
+                        "progressColor": "PrimaryGreen",
+                        "Dtl": [],
+                        "totalUsage": "50 of UNLIMITED",
+                        "index": 1,
+                        "prorated": "false"
+                    },
+                    {
+                        "pic_nm": "Messages",
+                        "optionType": "Messages",
+                        "text": "MESSAGES",
+                        "percentage": "60",
+                        "progressColor": "PrimaryGreen",
+                        "Dtl": [],
+                        "totalUsage": "60 of UNLIMITED",
+                        "index": 2,
+                        "prorated": "false"
+                    }
+                ],  
+				"planType": "ALP",
+                "editLinkEnable": "Y",
+                "isOverageProtectionInEffect": "N",
+                "hasOverageProtection": "N",
+                "scrnMsgInfo": {
+                    "scrnMsgMap": {},
+                    "scrnMsg": [
+                        "The following reflects current usage since your last statement.",
+                        "Reflects usage since your last billing statement"
+                    ],
+                    "scrnMsgObjMap": {
+                        "homePageUsgHdg": "Shared Account Usage Summary",
+                        "lineLevalPageUsgHdg": "Current Usage Summary",
+                        "homePageUsgDaysMsg": {
+                            "homePageUsgReminingDays": "7",
+                            "homePageUsgDayLftMsg": " days left in your usage cycle",
+                            "homePageUsgDayEndsOnMsg": "cycle ends on ",
+                            "homePageUsgBillCycleEndDate": "03/23/2015"
+                        }
+					}
+				}		
+            },
+            "PaymentMap": {
+                "currentBalHdg": "CURRENT BALANCE",
+                "currentBalAmtColor": "PrimaryRed",
+                "currentBalAmt": "$839.29",
+                "dateMap": {
+                    "dateMessage": "Due on ",
+                    "date": "04/18/2015",
+                    "dateColor": "PrimaryRed"
+                },
+                "topLink": {
+                    "title": "Pay Bill",
+                    "actionType": "openPage"
+                },
+                "leftLink": {
+                    "title": "SET UP & MANAGE AUTOPAY",
+                    "actionType": "openPage"
+                },
+                "rightLink": {
+                    "title": "VIEW BILL",
+                    "actionType": "openPage"
+                },
+                "pastDueAmt": {
+                    "pmtMsgOrNameHdg": "Your account is past due",
+                    "pastDueAmtMsg": "Your balance includes a past due amount of ",
+                    "pastDueMsgAmt": "$525.26",
+                    "pastDueAmtDueMsg": ", due immediately."
+                }
+            },
+            
+            "SplashMessages": [
+                "View your usage",
+                "Pay your bill",
+                "Change your plan",
+                "Change your features",
+                "Check for upgrades",
+                "Manage your profile"
+            ],
+            "PageInfo": {
+                "value": null,
+                "unit": null,
+                "pageType": "launchRCApp",
+                "scrnHdg": "My Verizon",
+                "scrnMsgInfo": null,
+                "hideFooter": "N",
+                "pageData": null,
+                "scrnSubHdg": null,
+                "pageSubType": null,
+                "appURL": null,
+                "browserURL": null,
+                "isSecure": null,
+                "scrnOptMsgsInfo": null,
+                "loginType": null,
+                "initial_Launch": null,
+                "userMessage": null
+            },
+            "ErrInfo": {
+                "errCd": "0",
+                "errHdg": null,
+                "errLvl": "0",
+                "errMsg": "Success",
+                "errUsrMsg": null,
+                "userAuthenticated": false,
+                "errUsrMsgList": null
+            },
+            "LinksInfo": [
+                {
+                    "title": "Store Locator",
+                    "actionType": "storeLocator",
+                    "pageInfo": {
+                        "value": null,
+                        "unit": null,
+                        "pageType": "nearestStore",
+                        "scrnHdg": null,
+                        "scrnMsgInfo": null,
+                        "hideFooter": "N",
+                        "pageData": null,
+                        "scrnSubHdg": null,
+                        "pageSubType": null,
+                        "appURL": null,
+                        "browserURL": null,
+                        "isSecure": "N",
+                        "scrnOptMsgsInfo": null,
+                        "loginType": null,
+                        "initial_Launch": null,
+                        "userMessage": null
+                    },
+                    "imageName": "locationsAndShopping",
+                    "secondLevelLinks": null
+                },
+                {
+                    "title": "Manage Privacy Settings",
+                    "actionType": "openPage",
+                    "pageInfo": {
+                        "value": null,
+                        "unit": null,
+                        "pageType": "privacyManager",
+                        "scrnHdg": null,
+                        "scrnMsgInfo": null,
+                        "hideFooter": "N",
+                        "pageData": null,
+                        "scrnSubHdg": null,
+                        "pageSubType": null,
+                        "appURL": null,
+                        "browserURL": null,
+                        "isSecure": "Y",
+                        "scrnOptMsgsInfo": null,
+                        "loginType": "AM",
+                        "initial_Launch": null,
+                        "userMessage": null
+                    },
+                    "imageName": "privacySettings",
+                    "secondLevelLinks": null
+                },
+                {
+                    "title": "Manage Family Safeguards & Controls",
+                    "actionType": "openPage",
+                    "pageInfo": {
+                        "value": null,
+                        "unit": null,
+                        "pageType": "safeguardsSingle",
+                        "scrnHdg": null,
+                        "scrnMsgInfo": null,
+                        "hideFooter": "N",
+                        "pageData": null,
+                        "scrnSubHdg": null,
+                        "pageSubType": null,
+                        "appURL": null,
+                        "browserURL": null,
+                        "isSecure": "Y",
+                        "scrnOptMsgsInfo": null,
+                        "loginType": "AM",
+                        "initial_Launch": null,
+                        "userMessage": null
+                    },
+                    "imageName": "manageFamilyBase",
+                    "secondLevelLinks": null
+                }
+            ],
+            "linkMap": {},                      
+            "planMap": {
+                "planInfoHdg": "Your Plan Summary",
+                "planInfoMsg": "You are currently on the ",
+                "planInfoType": "MORE EVERYTHING UNL TALK & TEXT 8GB",
+                "leftLink": {
+                    "title": "Manage Plan",
+                    "actionType": "openPage",
+                    "pageInfo": {
+                        "value": null,
+                        "unit": null,
+                        "pageType": "chgplan",
+                        "scrnHdg": null,
+                        "scrnMsgInfo": null,
+                        "hideFooter": "N",
+                        "pageData": null,
+                        "scrnSubHdg": null,
+                        "pageSubType": null,
+                        "appURL": null,
+                        "browserURL": null,
+                        "isSecure": "Y",
+                        "scrnOptMsgsInfo": null,
+                        "loginType": "AM",
+                        "initial_Launch": null,
+                        "userMessage": null
+                    },
+                    "imageName": null,
+                    "secondLevelLinks": null
+                },
+                "rightLink": {
+                    "title": "Manage Features",
+                    "actionType": "openPage",
+                    "pageInfo": {
+                        "value": null,
+                        "unit": null,
+                        "pageType": "changeFeatures",
+                        "scrnHdg": null,
+                        "scrnMsgInfo": null,
+                        "hideFooter": "N",
+                        "pageData": null,
+                        "scrnSubHdg": null,
+                        "pageSubType": null,
+                        "appURL": null,
+                        "browserURL": null,
+                        "isSecure": "Y",
+                        "scrnOptMsgsInfo": null,
+                        "loginType": "AM",
+                        "initial_Launch": null,
+                        "userMessage": null
+                    },
+                    "imageName": null,
+                    "secondLevelLinks": null
+                }
+            },
+            "alertMap": {},
+            "linkInfoArrayList": []
+        }
+    ]
+}
