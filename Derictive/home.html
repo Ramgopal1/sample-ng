@@ -1,0 +1,143 @@
+<div class="mvm-container">	
+	<div class="mvm-box align-left" ng-hide = "application.data.PaymentMap.pastDueAmt">
+		<h3> {{application.data.StaticMap.greetingKey}}, {{application.data.AcctInfo.firstName}}</h3>
+	</div>
+</div>
+<div class="mvm-container payment-alert" ng-show = "application.data.PaymentMap.lastPmtMap">
+	<div class="arrow-icon">	
+		<div class="icon icon-dollar"></div>
+	</div>
+	<div class="text"><span class="text-light">{{application.data.PaymentMap.lastPmtMap.lastPmtMadeMsg}}</span> <strong class="medium">{{application.data.PaymentMap.lastPmtMap.lastPmtDate}}</strong> <span class="text-light">{{application.data.PaymentMap.lastPmtMap.lastPmtAmtOfMsg}}</span><span class="bold">{{application.data.PaymentMap.lastPmtMap.lastPmtAmt}}</span></div>
+</div>
+<div class="mvm-container payment-warning" ng-show = "application.data.PaymentMap.pastDueAmt">
+	<div class="title">{{application.data.PaymentMap.pastDueAmt.pmtMsgOrNameHdg}}</div>
+		<div class="icon icon-triangle"></div>
+	<div class="text">
+	 
+	<span class="text-light">{{application.data.PaymentMap.pastDueAmt.pastDueAmtMsg}}</span>
+	<strong class="medium">{{application.data.PaymentMap.pastDueAmt.pastDueMsgAmt}}</strong> 
+	
+	<span class="text-light">{{application.data.PaymentMap.pastDueAmt.pastDueAmtDueMsg}}</span>
+	</div>
+</div>
+<div class="mvm-container hero hero-dark">
+	<div class="mvm-box">	
+		<div class="cell align-left">
+			<div><span class="mvm-font-small">{{application.data.PaymentMap.currentBalHdg}}</span></div>
+			<div><span class="xlarge bold text-color text-{{application.data.PaymentMap.currentBalAmtColor}}" ng-class="">{{application.data.PaymentMap.currentBalAmt}}</span></div>
+			<div><span class="mvm-font-medium">{{application.data.PaymentMap.dateMap.dateMessage}} <span class=" bold">{{application.data.PaymentMap.dateMap.date}}</span></span></div>
+		</div>
+		<div class="cell align-right align-bottom mvm-width-50">
+			<div>
+				<button class="btn btn-danger btn-fullwidth" ng-click="application.navigation.goTo('Payment')">{{application.data.PaymentMap.topLink.title}}</button>
+			</div>			
+		</div>
+	</div>
+	<div class="mvm-box">	
+		<div class="cell align-left">
+			<div class="before-spacer">
+				<a class="mvm-link"  ng-click="application.model.toggle(application.model.futureMsg)">{{application.data.PaymentMap.leftLink.title}}</a>
+			</div>
+		</div>
+		<div class="cell align-right">
+			<div class="before-spacer">
+				<a class="mvm-link"  ng-click="application.model.toggle(application.model.futureMsg)">{{application.data.PaymentMap.rightLink.title}}</a>				
+			</div>
+		</div>
+	</div>
+</div>
+<!-- SHARED ACCOUNT BALANCE SUMMARY -->
+<div class="mvm-container hero">		
+	<div class="mvm-box">
+		<div class="cell align-left">
+			<div class="before-spacer">
+				<span class="mvm-font-large">{{application.data.UsgInfo.scrnMsgInfo.scrnMsgObjMap.homePageUsgHdg}}</span>
+			</div>
+
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="mvm-container">
+			<div class="cell icon icon-calender"></div>
+			<div class="cell hero-text align-left">
+				<span class="bold">{{application.data.UsgInfo.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgReminingDays}}</span> 
+				{{application.data.UsgInfo.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgDayLftMsg}} 
+				({{application.data.UsgInfo.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgDayEndsOnMsg}}
+				<span class="bold">{{application.data.UsgInfo.scrnMsgInfo.scrnMsgObjMap.homePageUsgDaysMsg.homePageUsgBillCycleEndDate}}</span>)
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box" ng-repeat="usage in application.data.UsgInfo.UsgDtl">
+		<div class="mvm-container">
+			<div class="cell align-right after-spacer mvm-width-90">
+				<div class="mvm-container">
+					<div class="cell align-left mvm-width-30">
+						{{usage.text}}
+					</div>
+					<div class="cell align-right">
+						{{usage.totalUsage}}
+					</div>
+				</div>
+				<div class="mvm-container">
+					<progressbar 						
+						progressColor="{{usage.progressColor}}" 						
+						max="100" 
+						value="(usage.totalUsage.indexOf('UNLIMITED') !== -1)?100:usage.percentage"  
+						animate="true" type="usage.progressColor">
+					</progressbar>
+ 				</div>
+			</div>
+			<div class="cell align-middle align-right icon icon-right-angle"></div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="cell align-right">
+			<div class="">
+				<a class="mvm-link" ng-click="application.navigation.goTo('Device/list')">{{application.data.UsgInfo.scrnMsgInfo.scrnMsgObjMap.homePageUsgMultiLineLnk.title}}<span class="icon icon-blue-angle" style=""></span></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mvm-container hero hero-dark before-spacer">
+	<div class="mvm-box">		
+		<div class="cell align-left">
+			<div class="">
+				<span class="mvm-font-large">{{application.data.planMap.planInfoHdg}}</span>
+			</div>
+		</div>		
+	</div>
+	<div class="mvm-box">
+		<div class="mvm-container">
+			<div class="cell icon icon-calender"></div>
+			<div class="cell hero-text align-left align-middle">
+				{{application.data.planMap.planInfoMsg}}<span class="bold">{{application.data.planMap.planInfoType}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="mvm-box">
+		<div class="mvm-container">
+			<div class="cell">
+				<div>
+					<button class="btn btn-dark" ng-click="application.model.toggle(application.model.futureMsg)">{{application.data.planMap.leftLink.title}}</button>
+				</div>
+			</div>
+			<div class="cell align-left align-middle">
+				<div>
+					<button class="btn btn-dark" ng-click="application.model.toggle(application.model.futureMsg)">{{application.data.planMap.rightLink.title}}</button>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+<!-- LIST -->
+<div class="mvm-container mvm-list">
+	<div class="mvm-box" ng-repeat="item in application.data.LinksInfo">
+		<div class="cell icon align-center icon-marker icon-{{item.imageName}}"></div>
+		<div class="cell align-left align-middle"  ng-click="application.model.toggle(application.model.futureMsg)">{{item.title}}</div>
+		<div class="cell align-middle align-left icon icon-right-angle"></div>
+	</div>
+</div>
+<!-- SLIDER -->
+<div class="mvm-container" ng-click="clickFunction">
+	<div class="before-spacer"></div>
+</div>
