@@ -1,0 +1,104 @@
+<div id="page-body">
+<form name="loginform" class="css-form" ng-submit="submitForm()" novalidate> 
+	<div class="mvm-container login_box">
+			<div ng-show="selectedPage =='username' || selectedPage =='password'">
+				<div class="mvm-container align-center">
+					<div class="mvm-box">
+						<div class="header-bar">
+							<div class="beta">Sign In</div>
+						</div>
+					
+					</div> 
+				</div>
+		<div class="mvm-container">
+			<div class="mvm-box align-center">
+				<h1 class="large">My Verizon Mobile</h1>
+			</div> 
+			</div>
+			</div>
+	<div class="mvm-container" ng-show="selectedPage =='username'">
+		<div class="mvm-box" >
+				<div class="cell" >
+					<div class="align-left"><input type="text" name="userid" ng-model="userid" 
+							required class="iptext form-control" ng-pattern="/^\d{10}$/" 
+							placeholder="Enter your Mobile Number">
+						<div ng-show="loginform.$submitted || loginform.userid.$touched">
+						<span class="error form-error errcls" ng-show="loginform.userid.$error.required">Please enter your Mobile Number.</span>
+						<span class="form-error errcls" ng-show="loginform.userid.$error.pattern">
+						Please enter valid Mobile Number.</span>
+						<span class="error form-error errcls">{{serviceError}}</span>
+					</div> 
+				 	</div>
+				</div>
+		</div>
+		<div class="mvm-box">
+			<div class="mvm-container before-spacer split-container">
+				<div class="inner-container">
+					<div class="cell">
+						<button class="btn btn-danger btn-fullwidth" ng-click="handleSubmit()" type="submit">Sign In</button>
+					</div>
+					<div class="cell ">
+						<button class="btn btn-gray btn-fullwidth" ng-click="application.navigation.goTo('Register')">Register</button>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+
+
+
+
+
+<div class="mvm-container" ng-show="selectedPage =='password'">	
+		<div class="mvm-box" >
+			<div class="mvm-container">
+				<div class="cell" >
+					<div class="align-left"><input type="password" name="password" ng-model="password" 
+						required class="iptext form-control"  
+						placeholder="Enter your password">
+						<div ng-show="loginform.password.$touched">
+							<span class="error form-error errcls" ng-show="loginform.password.$error.required">
+								Please enter your password.
+							</span>
+							<span class="form-error errcls" ng-show="loginform.password.$error.pattern">
+								Password must contain 8 characters.
+							</span>
+							<span class="error form-error errcls">{{serviceError}}</span>
+						</div> 
+				 	</div>
+				</div>
+				<div class="mvm-box">
+					<div class="cell">
+						<div class="align-left mvm-font-small texticon"  ng-click="application.model.toggle(application.model.futureMsg)">FORGOT PASSWORD?  </div>
+					</div>	
+				</div>
+				
+
+				<input type="checkbox" id="checkboxpass" class="checkbox"/>
+				<label for="checkboxpass">Remember My Password</label><br/>
+
+				<input type="checkbox" id="checkboxremember" class="checkbox"/>
+				<label for="checkboxremember">Remember This Device</label>
+
+			</div>	
+		</div>
+
+ 		<div class="mvm-box">
+			<div class="mvm-container before-spacer split-container">
+			<div class="inner-container">
+				<div class="cell">
+					<button class="btn btn-danger btn-fullwidth" ng-click="handleSubmit()" type="submit">Sign In</button>
+				</div>
+				<div class="cell ">
+					<button class="btn btn-gray btn-fullwidth" ng-click="application.navigation.goTo('Login')">Cancel</button>
+				</div>
+			</div>
+			</div>	
+		</div> 
+</div>
+
+	</div>
+
+</form> 
+</div> 
